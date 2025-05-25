@@ -1,4 +1,6 @@
 #!/bin/bash
+# github-issue-autocreate.sh
+# Description: Automates GitHub issue creation from a structured issues.txt file using GitHub CLI (macOS-compatible + label detection)
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 REPO_ROOT="$(dirname "$SCRIPT_DIR")"
@@ -14,7 +16,7 @@ awk -v RS="---" '
     filename = sprintf("issue_%03d", NR)
     print $0 > filename
   }
-' "$REPO_ROOT/issues.txt"
+' "$REPO_ROOT/utilities/data/issues.txt"
 
 echo "Creating issues using GitHub CLI..."
 for f in issue_*; do
