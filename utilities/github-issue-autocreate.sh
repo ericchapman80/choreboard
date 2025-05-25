@@ -1,20 +1,26 @@
 #!/bin/bash
 # github-issue-autocreate.sh
-# Description: Automates GitHub issue creation from a structured issues.txt file using GitHub CLI
+# Description: Automates GitHub issue creation from a structured issues.txt file using GitHub CLI (macOS compatible)
 
-# Determine script location
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 REPO_ROOT="$(dirname "$SCRIPT_DIR")"
 cd "$SCRIPT_DIR"
 
+# Clean up any old splits
+rm -f issue_*
+
 echo "Splitting issues.txt into individual files..."
-csplit --quiet --prefix=issue_ "$REPO_ROOT/issues.txt" "/^---$/" "{*}"
+csplit -f issue_ "$REPO_ROOT/issues.txt" '/^---$/' '{*}' >/dev/null
 
 echo "Creating issues using GitHub CLI..."
 for f in issue_*; do
   title=$(grep '^title:' "$f" | sed 's/title: //')
   body=$(sed -n '/^body:/,$p' "$f" | sed '1d')
-  gh issue create --title "$title" --body "$body"
+  if [[ -n "$title" && -n "$body" ]]; then
+    gh issue create --title "$title" --body "$body"
+  else
+    echo "⚠️ Skipped $f — missing title or body."
+  fi
 done
 
-echo "Done! Issues have been created in your repository."
+echo "✅ Done! Issues have been created in your repository."
