@@ -43,4 +43,8 @@ for f in issue_*; do
   fi
 done
 
+# Clean up issue_* files after import
+rm -f issue_*
+
+
 echo "✅ Done! Issues have been created in your repository."
