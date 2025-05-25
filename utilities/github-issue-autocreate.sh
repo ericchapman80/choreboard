@@ -3,7 +3,7 @@
 # Description: Automates GitHub issue creation from a structured issues.txt file using GitHub CLI
 
 echo "Splitting issues.txt into individual files..."
-csplit --quiet --prefix=issue_ issues.txt "/^---$/" "{*}"
+csplit --quiet --prefix=issue_ ../issues.txt "/^---$/" "{*}"
 
 echo "Creating issues using GitHub CLI..."
 for f in issue_*; do
