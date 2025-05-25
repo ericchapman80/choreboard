@@ -1,6 +1,4 @@
 #!/bin/bash
-# github-issue-autocreate.sh
-# Description: Automates GitHub issue creation from a structured issues.txt file using GitHub CLI (macOS-compatible + auto-labeling)
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 REPO_ROOT="$(dirname "$SCRIPT_DIR")"
@@ -9,14 +7,19 @@ cd "$SCRIPT_DIR"
 # Clean up any old splits
 rm -f issue_*
 
-echo "Splitting issues.txt into individual files..."
-csplit -f issue_ "$REPO_ROOT/issues.txt" '/^---$/' '{*}' >/dev/null
+echo "Splitting issues.txt into individual files using awk..."
+
+awk -v RS="---" '
+  {
+    filename = sprintf("issue_%03d", NR)
+    print $0 > filename
+  }
+' "$REPO_ROOT/issues.txt"
 
 echo "Creating issues using GitHub CLI..."
 for f in issue_*; do
   title=$(grep '^title:' "$f" | sed 's/title: //')
   body=$(sed -n '/^body:/,$p' "$f" | sed '1d')
-
   if [[ -n "$title" && -n "$body" ]]; then
     # Detect label from title prefix
     if [[ "$title" == chore:* ]]; then
