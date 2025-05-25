@@ -1,0 +1,73 @@
+title: chore: Create Google Sheet with Bounty and Required tabs
+body: |
+  Set up the initial chore tracking system with two tabs: one for required chores and one for bounty tasks.
+
+  **Acceptance Criteria:**
+  - Required tab includes: task name, frequency, due date, assigned to, completed?, approval status
+  - Bounty tab includes: task name, bounty $, points, claimed by, completed?, approval status
+  - Column formats are consistent and user-friendly
+
+  **Definition of Done:**
+  - Sheet is created and shared with appropriate access
+  - Columns are validated (e.g., dropdowns, checkboxes)
+  - Example tasks are added to show formatting
+---
+title: feat: Create pivot table dashboard for weekly earnings
+body: |
+  Use Google Sheets pivot tables to summarize weekly performance per child.
+
+  **Acceptance Criteria:**
+  - Shows earnings ($), points (⭐), and tasks completed
+  - Filters by current week
+
+  **Definition of Done:**
+  - Sheet loads with correct charts
+  - No errors or broken references
+  - Demoed with sample data
+---
+title: feat: Scaffold React frontend with Google login
+body: |
+  Create a Next.js React app scaffold with Google OAuth2 authentication.
+
+  **Acceptance Criteria:**
+  - Authenticated users' emails are matched to names in the sheet
+  - Environment is deployable via Vercel
+
+  **Definition of Done:**
+  - Initial login flow complete
+  - Users routed to child or parent view based on email
+---
+title: feat: Build child view to claim tasks and mark completion
+body: |
+  Provide a kid-friendly interface to claim and complete tasks via React.
+
+  **Acceptance Criteria:**
+  - Pulls available/assigned tasks via API
+  - Allows claiming or marking complete
+
+  **Definition of Done:**
+  - Data syncs to sheet via API
+  - Interface is responsive and easy to use
+---
+title: feat: Build parent view to approve/reject tasks and track payouts
+body: |
+  Admin panel for parents to approve tasks, view pending items, and mark payouts complete.
+
+  **Acceptance Criteria:**
+  - Pulls completed tasks awaiting approval
+  - Approve/reject buttons update sheet
+
+  **Definition of Done:**
+  - Sheet reflects approval status
+  - Payouts tab updated on approval
+---
+title: docs: Publish blog series documenting build process and learnings
+body: |
+  Open-source the journey and share the tech + family impact.
+
+  **Acceptance Criteria:**
+  - Posts include screenshots and repo links
+  - Covers tech, parenting, and AI use
+
+  **Definition of Done:**
+  - 3–5 blog posts published or drafted

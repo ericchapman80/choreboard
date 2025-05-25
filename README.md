@@ -34,3 +34,20 @@
 `chore-tracker` `dakboard` `family-dashboard` `google-sheets` `react` `gamification` `household-management` `google-apps-script` `task-tracker` `parenting-tools`
 
 ---
+
+## 🧰 Utilities
+
+### Automated GitHub Issue Creation
+
+To bulk-import issues into your GitHub repo from `issues.txt`, use the helper script:
+
+```bash
+cd utilities
+./github-issue-autocreate.sh
+```
+
+This script will:
+- Split `issues.txt` into individual issue files
+- Automatically create each issue via the GitHub CLI
+
+📄 Be sure you're authenticated with `gh auth login` and that you're in the correct repo context.
