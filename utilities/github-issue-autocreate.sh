@@ -2,8 +2,13 @@
 # github-issue-autocreate.sh
 # Description: Automates GitHub issue creation from a structured issues.txt file using GitHub CLI
 
+# Determine script location
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+REPO_ROOT="$(dirname "$SCRIPT_DIR")"
+cd "$SCRIPT_DIR"
+
 echo "Splitting issues.txt into individual files..."
-csplit --quiet --prefix=issue_ ../issues.txt "/^---$/" "{*}"
+csplit --quiet --prefix=issue_ "$REPO_ROOT/issues.txt" "/^---$/" "{*}"
 
 echo "Creating issues using GitHub CLI..."
 for f in issue_*; do
