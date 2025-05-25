@@ -1,0 +1,7 @@
+<svg width="300" height="100" xmlns="http://www.w3.org/2000/svg">
+  <rect fill="#2D3748" width="300" height="100" rx="12"/>
+  <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle"
+        font-family="Poppins, sans-serif" font-size="22" fill="#F6E05E">
+    🏠 Choreboard
+  </text>
+</svg>
