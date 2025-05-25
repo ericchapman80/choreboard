@@ -33,7 +33,46 @@
 
 `chore-tracker` `dakboard` `family-dashboard` `google-sheets` `react` `gamification` `household-management` `google-apps-script` `task-tracker` `parenting-tools`
 
+
 ---
+
+## 🛠 Setup Instructions (macOS)
+
+To install required tools and get started:
+
+### 1. Clone the repo
+
+```bash
+git clone https://github.com/ericchapman80/choreboard.git
+cd choreboard
+```
+
+### 2. Install Dependencies via Homebrew
+
+```bash
+brew bundle
+```
+
+This installs:
+- `gh` (GitHub CLI)
+- `jq` (JSON processor for issue sync)
+
+### 3. Authenticate with GitHub
+
+```bash
+gh auth login
+```
+
+### 4. Run the Issue Sync Script
+
+```bash
+./utilities/github-issue-sync.sh
+```
+
+This will pull all issues from GitHub and format them into `utilities/data/issues.txt`.
+
+---
+
 
 ## 🧰 Utilities
 
