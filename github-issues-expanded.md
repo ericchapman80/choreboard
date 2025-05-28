@@ -60,3 +60,37 @@ Document all major components including sheets, forms, apps script, DAKboard, an
 
 **Definition of Done**
 - File lives at project root and is referenced in README
+
+---
+
+## chore: Add Jest and sample unit tests for React components
+
+**Description**
+Set up Jest and React Testing Library for unit testing React components.
+
+### Acceptance Criteria (Jest)
+
+- Jest and React Testing Library are installed and configured
+- At least one sample test exists for a simple component
+- Test command is documented in the README
+
+### Definition of Done (Jest)
+
+- `npm test` runs and passes sample tests
+
+---
+
+## chore: Add GitHub Actions CI to run unit tests on every build
+
+**Description**
+Set up GitHub Actions workflow to run unit tests on every push and pull request.
+
+### Acceptance Criteria (CI)
+
+- Workflow runs `npm test` for the React frontend
+- Fails the build if any test fails
+
+### Definition of Done (CI)
+
+- CI badge can be added to README
+- PRs are blocked if tests fail

@@ -43,8 +43,10 @@ ChatGPT served as the co-architect and pair programmer across all phases:
 * ✅ Phase 1: Google Sheets + Apps Script backend
 * ✅ Phase 2: GitHub issues, roadmap, and documentation
 * 🔄 Phase 3: React frontend scaffolding
-* 🔜 Phase 4: Google Auth + live dashboard
-* 🔜 Phase 5: DAKboard-ready display layouts
+* 🧪 Phase 3.1: Add Jest and sample unit tests for React components
+* 🔜 Phase 4: GitHub Actions CI to run tests on every build
+* 🔜 Phase 5: Google Auth + live dashboard
+* 🔜 Phase 6: DAKboard-ready display layouts
 
 ---
 
