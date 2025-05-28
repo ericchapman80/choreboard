@@ -1,40 +1,68 @@
-# 🧾 SHEET_AUTOCREATE.md
+# SHEET\_AUTOCREATE.md
 
-## 📌 Purpose
-This document explains how the `createChoreboardSheet.gs` script works to create the Choreboard system in Google Sheets with all necessary tabs, validations, and starter data.
+## 📄 Sheet Auto-Creation Instructions (One-Click Setup)
 
----
-
-## ✅ Sheet Structure Created
-
-| Tab Name        | Purpose                                                             |
-|----------------|----------------------------------------------------------------------|
-| `Administrators` | Houses parent name, Gmail address, and phone number                |
-| `Users`          | Houses child name, Gmail address, and optional contact info        |
-| `Reference Data` | Source data for dropdowns (Frequencies, Statuses, etc.)            |
-| `Required`       | Mandatory chores assigned by parents                               |
-| `Bounty`         | Optional tasks with reward value                                   |
-| `Instructions`   | Descriptive tab to help users understand sheet structure & usage   |
+This guide walks you through setting up the **Choreboard** Google Sheet using a fully automated Apps Script. It creates all necessary tabs, sample data, reference lists, and validation rules.
 
 ---
 
-## 🔄 Validation & Data Consistency
+### 🚀 Quick Start (Recommended)
 
-- The `Assigned To` field in the **Required** tab should validate against the `Users` tab.
-- The `Approval Status` field validates from the `Reference Data` tab.
+1. **Open a new Google Sheet** ([https://sheets.new](https://sheets.new)).
+2. From the menu, click `Extensions > Apps Script`.
+3. Replace any existing code with the full script from [`ChoreBoard.gs`](../utilities/ChoreBoard.gs).
+4. Click the **disk icon** 💾 or press `Ctrl+S` to save.
+5. Click the **Run ▶️** button.
+6. When prompted, grant script authorization to access your Google Sheet.
+
+> ✅ This will auto-generate:
+>
+> * `Instructions`
+> * `Administrators (Parents)`
+> * `Users (Children)`
+> * `Reference Data`
+> * `Required`
+> * `Bounty`
 
 ---
 
-## 🛠 How to Run the Script
+### 📋 Tab Descriptions
 
-1. Open [Google Apps Script](https://script.google.com/) and create a new script.
-2. Paste in `createChoreboardSheet.gs`.
-3. Run `createChoreboardSheet()` after authorizing.
-4. Your sheet will be created with all required tabs and sample data.
+| Tab Name                 | Purpose                                                                |
+| ------------------------ | ---------------------------------------------------------------------- |
+| Instructions             | General usage guide inside the Sheet                                   |
+| Administrators (Parents) | Maintains parent details (Name, Gmail, Phone)                          |
+| Users (Children)         | Maintains child details (Name, Gmail, optional Phone)                  |
+| Reference Data           | Controlled values for frequency, status, etc. Used for data validation |
+| Required                 | Required chores with dropdowns, dates, and approval tracking           |
+| Bounty                   | Claimable chores with dollar/point values and status tracking          |
 
 ---
 
-## 💡 Tips
+### 📌 Notes
 
-- You can modify or expand the reference data (e.g., add more statuses or frequencies).
-- You can assign real Gmail addresses to children and parents for use with Forms or email/SMS integrations.
+* **Re-runnable**: You can safely re-run this script to reset all tab data without affecting the structure.
+* **Dropdowns**: Fields such as `Assigned To`, `Frequency`, and `Approval Status` are dynamically validated using the `Users` and `Reference Data` tabs.
+* **Form Integration**: This sheet is designed to work with a linked Google Form for chore submissions (optional).
+
+---
+
+### 💡 Troubleshooting
+
+* ❌ **No active spreadsheet found**:
+  Ensure you're running the script from within a bound Google Sheet (not standalone at [scripts.google.com](https://scripts.google.com)).
+
+* ⚠️ **Authorization Error**:
+  If this is your first time running the script, follow the prompt to grant permissions.
+
+---
+
+### 🛠️ Next Steps
+
+* Customize your `Users` and `Administrators` tabs with real names/emails.
+* Use the `Instructions` tab to help your family learn how to use the sheet.
+* Explore the `SCRIPTS.md` file for recurring task generation and automation setup.
+
+---
+
+Happy choreboarding! 🎯
