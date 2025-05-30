@@ -19,11 +19,18 @@ Icon?
 # macOS Finder tags
 .fseventsd
 
-# Node/React
+# Node/React/Next.js
 node_modules/
 build/
 dist/
+.next/
 .env
+.env.*
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+coverage/
 
 # Shell history and logs
 *.log

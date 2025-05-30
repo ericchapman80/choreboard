@@ -99,6 +99,66 @@ function summarizeWeeklyStats() {
 - `processFormSubmissions()` – Trigger every 15 minutes or on form submission
 - `summarizeWeeklyStats()` – Trigger weekly
 
+
+## 📜 Script: `buildChoreboard()`
+
+This script builds the full Choreboard system from scratch. It is designed to be idempotent, meaning it can be re-run without breaking existing structure. It:
+
+- Creates all necessary tabs: Required, Bounty, Leaderboard, Reference Data, Users (Children), Admins, Instructions
+- Populates each with sample data and clear formatting
+- Automatically sets up dropdown validations and point-tracking formulas
+- Enforces naming and structure for consistency
+
+### 🔧 How to Use
+1. Open your Google Sheet
+2. Go to **Extensions > Apps Script**
+3. Replace any existing code with the provided `.gs` script
+4. Save and run the function: `buildChoreboard`
+
+> This will create or reset the entire chore tracking structure in your spreadsheet.
+
+---
+
+## 🧠 Formula Logic for Leaderboard
+
+Each row in the Leaderboard uses the following formula to sum points from both the Required and Bounty sheets:
+
+```excel
+=SUMIF('Required'!$B$2:$B,A2,'Required'!$E$2:$E) + SUMIF('Bounty'!$B$2:$B,A2,'Bounty'!$E$2:$E)
+```
+
+Where:
+- Column B in both sheets is **Assigned To**
+- Column E is **Points**
+- `A2` is the child's name on the Leaderboard
+
+This formula is automatically applied per user by the script.
+
+If you wish to count **only completed chores**, change the formula to a `SUMIFS` and add a condition for "Completed" in column D.
+
+---
+
+## 🧪 Validations Setup
+
+Each of the following columns gets validation from the `Reference Data` tab:
+- `Assigned To`: Validated against names in `Users (Children)`
+- `Frequency`: Daily, Weekly, Monthly, One-time
+- `Status`: Not Started, In Progress, Completed
+
+These validations prevent typos and ensure consistent dropdown selection in the Required and Bounty tabs.
+
+---
+
+## ✅ Status
+This script is ready for use. It auto-creates all sheets and structures needed for Choreboard with one click.
+
+Re-running the script:
+- Clears content but retains tabs and structure
+- Does not duplicate or break dropdowns/formulas
+
+Feel free to fork or modify to fit your needs.
+
+
 ---
 
 ## ✅ Coming Soon

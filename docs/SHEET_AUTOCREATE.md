@@ -15,29 +15,67 @@ This guide walks you through setting up the **Choreboard** Google Sheet using a 
 5. Click the **Run ▶️** button.
 6. When prompted, grant script authorization to access your Google Sheet.
 
-> ✅ This will auto-generate:
->
-> * `Instructions`
-> * `Administrators (Parents)`
-> * `Users (Children)`
-> * `Reference Data`
-> * `Required`
-> * `Bounty`
 
----
+The following tabs are created automatically by the `buildChoreboard()` script:
 
-### 📋 Tab Descriptions
+### 1. **Administrators (Parents)**
+- Purpose: Lists the parent/guardian administrators.
+- Columns: `Parent Name`, `Email`
+- Sample Data:
+  - Parent 1 | parent1@example.com
+  - Parent 2 | parent2@example.com
 
-| Tab Name                 | Purpose                                                                |
-| ------------------------ | ---------------------------------------------------------------------- |
-| Instructions             | General usage guide inside the Sheet                                   |
-| Administrators (Parents) | Maintains parent details (Name, Gmail, Phone)                          |
-| Users (Children)         | Maintains child details (Name, Gmail, optional Phone)                  |
-| Reference Data           | Controlled values for frequency, status, etc. Used for data validation |
-| Required                 | Required chores with dropdowns, dates, and approval tracking           |
-| Bounty                   | Claimable chores with dollar/point values and status tracking          |
+### 2. **Users (Children)**
+- Purpose: Lists children who can be assigned chores.
+- Column: `Child Name`
+- Sample Data:
+  - Alice
+  - Bob
 
----
+### 3. **Reference Data**
+- Purpose: Stores dropdown values used for validation in chores.
+- Columns:
+  - `Frequency`: Daily, Weekly, Monthly, One-time
+  - `Status`: Not Started, In Progress, Completed
+
+### 4. **Required**
+- Purpose: Tracks required (mandatory) chores.
+- Columns: `Chore`, `Assigned To`, `Frequency`, `Status`, `Points`
+- Sample Data:
+  - Wash Dishes | Alice | Daily | Not Started | 5
+  - Take Out Trash | Bob | Weekly | Not Started | 10
+
+### 5. **Bounty**
+- Purpose: Tracks optional chores for bonus points.
+- Columns: `Chore`, `Assigned To`, `Frequency`, `Status`, `Points`
+- Sample Data:
+  - Wash Car | Alice | One-time | Not Started | 20
+  - Mow Lawn | Bob | Monthly | Not Started | 15
+
+### 6. **Leaderboard**
+- Purpose: Auto-calculates total points from Required + Bounty tabs.
+- Columns: `Child Name`, `Total Points`
+- Formula (per row):
+  ```excel
+  =SUMIF('Required'!$B$2:$B,A2,'Required'!$E$2:$E) + SUMIF('Bounty'!$B$2:$B,A2,'Bounty'!$E$2:$E)
+  ```
+- Auto-updated when new chores or children are added.
+
+### 7. **Instructions**
+- Purpose: Guides users on how to use Choreboard.
+- Content:
+  - Add children in the `Users (Children)` tab.
+  - Add chores in `Required` or `Bounty`.
+  - Check points in `Leaderboard`.
+
+## 🔁 Validations
+All dropdowns are set using the `Reference Data` tab:
+- **Frequency**: Daily, Weekly, Monthly, One-time
+- **Status**: Not Started, In Progress, Completed
+- **Assigned To**: Pulled from `Users (Children)`
+
+Each validation is applied to columns in the **Required** and **Bounty** sheets, from row 2 onward, and auto-updates when new names or values are added within the defined range.
+
 
 ### 📌 Notes
 
