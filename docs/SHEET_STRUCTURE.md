@@ -1,12 +1,14 @@
 # 📊 SHEET_STRUCTURE.md
 
 This document outlines the structure, columns, validations, and rules used in the Choreboard Google Sheet.
-npx create-next-app@latest frontend
+
+
 ## 🧾 Choreboard Google Sheet Structure
 
 Choreboard uses multiple tabs to organize required chores, claimable tasks, tracked rewards, and user access.
 
 ---
+
 ## 📋 Tabs Overview
 
 | Tab                     | Purpose                                                                 |
@@ -17,6 +19,7 @@ Choreboard uses multiple tabs to organize required chores, claimable tasks, trac
 | `Required`              | Recurring or scheduled chores assigned to specific users               |
 | `Bounty`                | Optional claimable tasks for extra stars or dollars                    |
 | `Leaderboard`           | Auto-calculated scoreboard of approved task points per child          |
+| `Chore History`         | Append-only log of completed chores, approvals, and source tab        |
 | `Instructions`          | Basic onboarding message and workflow guidance                        |
 
 ---
@@ -25,15 +28,12 @@ Choreboard uses multiple tabs to organize required chores, claimable tasks, trac
 
 | Column          | Description                                  | Validation / Format                           |
 |------------------|----------------------------------------------|------------------------------------------------|
-| Task ID         | Unique identifier (e.g., RC001)              | Auto-generated or manual entry                |
-| Task Name       | Name of the chore                            | Text                                          |
+| Task            | Name of the chore                            | Text                                          |
 | Assigned To     | Who is responsible                           | Dropdown (kids' names)                        |
-| Frequency       | How often task repeats                       | Dropdown (Daily, Weekly, Monthly, One-Off)    |
+| Frequency       | How often task repeats                       | Dropdown (Daily, Weekly, Monthly, One-time)    |
 | Due Date        | Date due                                     | Date picker                                   |
 | Completed?      | Has task been done                           | Checkbox                                      |
-| Approval Status | Parent approval status                       | Dropdown (Pending, Approved, Rejected)        |
-| Paid?           | Has payout been made                         | Checkbox                                      |
-| Notes           | Any additional comments                      | Text                                          |
+| Approval Status | Parent approval status                       | Dropdown (Not Started, In Progress, Completed, Approved, Rejected) |
 
 ---
 
@@ -41,16 +41,25 @@ Choreboard uses multiple tabs to organize required chores, claimable tasks, trac
 
 | Column          | Description                                  | Validation / Format                           |
 |------------------|----------------------------------------------|------------------------------------------------|
-| Task ID         | Unique identifier (e.g., BB001)              | Auto-generated or manual entry                |
-| Task Name       | Name of the bounty chore                     | Text                                          |
+| Task            | Name of the bounty chore                     | Text                                          |
 | Bounty ($)      | Dollar reward                                | Number                                        |
 | Points (⭐)      | Star points earned                           | Number                                        |
-| Available To    | Eligible claimants                           | Dropdown (All, specific names)                |
 | Claimed By      | Kid who claimed it                           | Dropdown (names)                              |
 | Completed?      | Has task been done                           | Checkbox                                      |
-| Approval Status | Parent review                                | Dropdown (Pending, Approved, Rejected)        |
-| Paid?           | Payment status                               | Checkbox                                      |
-| Notes           | Any comments                                 | Text                                          |
+| Approval Status | Parent review                                | Dropdown (Not Started, In Progress, Completed, Approved, Rejected) |
+
+---
+
+## 🗂️ Tab: Chore History
+
+| Column        | Description                                   |
+|---------------|-----------------------------------------------|
+| Timestamp     | When the chore was completed/approved         |
+| Task          | Name of the chore                             |
+| Assigned To   | Who was responsible                           |
+| Completed?    | Was the task completed                        |
+| Approval Status | Parent approval status                      |
+| Source Tab    | Which tab (Required/Bounty) the chore came from|
 
 ---
 
@@ -65,6 +74,7 @@ Uses Google Sheets Pivot Tables and Charts to summarize:
 - Leaderboard
 
 ---
+
 ## 🧮 Leaderboard Calculation
 
 The `Leaderboard` tab is dynamically updated using Google Sheets formulas.  
@@ -76,6 +86,7 @@ It aggregates points from **Approved** tasks across both the `Required` and `Bou
 | Total Points | Sum of approved points across all tabs |
 
 The formula works by:
+
 - Filtering both chore tabs (`Required`, `Bounty`) for rows marked "Approved"
 - Matching users by name
 - Summing the `Points` field from each tab
@@ -96,13 +107,16 @@ All dropdowns are enforced using **data validation** rules that pull from refere
 
 ## 🔁 Automation Notes
 
-Automation will be handled via Apps Script to:
+Automation is handled via Apps Script to:
+
 - Generate recurring chores based on frequency
 - Auto-update dashboard ranges
 - Reset weekly values as needed
+- Log completed chores to Chore History
 
 ## 💡 Notes
 
 - The sheet is idempotent — re-running the script won't duplicate tabs or headers.
 - Data validation prevents user input errors by using dropdowns.
 - The script auto-generates seeded tasks for clarity.
+- Chore History is append-only and not manually edited.

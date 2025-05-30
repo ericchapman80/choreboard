@@ -57,49 +57,61 @@ The following tabs are created automatically by the `buildChoreboard()` script:
 - Columns: `Child Name`, `Total Points`
 - Formula (per row):
   ```excel
-  =SUMIF('Required'!$B$2:$B,A2,'Required'!$E$2:$E) + SUMIF('Bounty'!$B$2:$B,A2,'Bounty'!$E$2:$E)
+  =SUMIF('Required'!$B$2:$B,A2,'Required'!$F$2:$F) + SUMIF('Bounty'!$D$2:$D,A2,'Bounty'!$C$2:$C)
   ```
 - Auto-updated when new chores or children are added.
 
-### 7. **Instructions**
+### 7. **Chore History**
+
+- Purpose: Append-only log of completed chores, approvals, and source tab.
+- Columns: `Timestamp`, `Task`, `Assigned To`, `Completed?`, `Approval Status`, `Source Tab`
+- Populated by automation scripts when chores are completed/approved.
+
+### 8. **Instructions**
+
 - Purpose: Guides users on how to use Choreboard.
 - Content:
   - Add children in the `Users (Children)` tab.
   - Add chores in `Required` or `Bounty`.
   - Check points in `Leaderboard`.
+  - Review history in `Chore History`.
 
 ## 🔁 Validations
+
 All dropdowns are set using the `Reference Data` tab:
+
 - **Frequency**: Daily, Weekly, Monthly, One-time
-- **Status**: Not Started, In Progress, Completed
+- **Status**: Not Started, In Progress, Completed, Approved, Rejected
 - **Assigned To**: Pulled from `Users (Children)`
+- **Approval Status**: Pulled from `Reference Data` column B
 
 Each validation is applied to columns in the **Required** and **Bounty** sheets, from row 2 onward, and auto-updates when new names or values are added within the defined range.
 
 
 ### 📌 Notes
 
-* **Re-runnable**: You can safely re-run this script to reset all tab data without affecting the structure.
-* **Dropdowns**: Fields such as `Assigned To`, `Frequency`, and `Approval Status` are dynamically validated using the `Users` and `Reference Data` tabs.
-* **Form Integration**: This sheet is designed to work with a linked Google Form for chore submissions (optional).
+- **Re-runnable**: You can safely re-run this script to reset all tab data without affecting the structure.
+- **Dropdowns**: Fields such as `Assigned To`, `Frequency`, and `Approval Status` are dynamically validated using the `Users` and `Reference Data` tabs.
+- **Form Integration**: This sheet is designed to work with a linked Google Form for chore submissions (optional).
+- **Chore History**: This tab is append-only and not manually edited; it is updated by automation scripts.
 
 ---
 
 ### 💡 Troubleshooting
 
-* ❌ **No active spreadsheet found**:
+- ❌ **No active spreadsheet found**:
   Ensure you're running the script from within a bound Google Sheet (not standalone at [scripts.google.com](https://scripts.google.com)).
 
-* ⚠️ **Authorization Error**:
+- ⚠️ **Authorization Error**:
   If this is your first time running the script, follow the prompt to grant permissions.
 
 ---
 
 ### 🛠️ Next Steps
 
-* Customize your `Users` and `Administrators` tabs with real names/emails.
-* Use the `Instructions` tab to help your family learn how to use the sheet.
-* Explore the `SCRIPTS.md` file for recurring task generation and automation setup.
+- Customize your `Users` and `Administrators` tabs with real names/emails.
+- Use the `Instructions` tab to help your family learn how to use the sheet.
+- Explore the `SCRIPTS.md` file for recurring task generation and automation setup.
 
 ---
 

@@ -94,3 +94,62 @@ Set up GitHub Actions workflow to run unit tests on every push and pull request.
 
 - CI badge can be added to README
 - PRs are blocked if tests fail
+
+---
+
+## chore: Auto-create Choreboard Google Sheet (Apps Script)
+
+**Description**  
+Automate the creation of the Choreboard Google Sheet with all required tabs, columns, sample data, and validation rules using the `buildChoreboard()` Apps Script (`utilities/create_choreboard_sheet.gs`).
+
+### Acceptance Criteria (Sheet Auto-Creation)
+
+- Script creates all tabs: Administrators (Parents), Users (Children), Reference Data, Required, Bounty, Leaderboard, Chore History, Instructions
+- Columns and sample data match documentation
+- Data validation is set up for dropdowns (Assigned To, Frequency, Status, Claimed By, Approval Status)
+- Leaderboard tab uses formulas to sum points from Required and Bounty
+- Instructions tab provides onboarding and usage guidance
+- Script is idempotent (safe to re-run)
+
+### Definition of Done (Sheet Auto-Creation)
+
+- Script runs successfully in a new Google Sheet
+- All tabs, columns, and validations are present
+- Sample data is visible and correct
+- Instructions are clear and match documentation
+
+---
+
+## feat: Add Chore History tracking
+
+**Description**  
+Add a Chore History tab to log completed chores, including timestamp, task, assigned to, completed status, approval status, and source tab. Update documentation and script to ensure this is created and used.
+
+### Acceptance Criteria (Chore History)
+
+- Chore History tab is created by the script
+- Columns: Timestamp, Task, Assigned To, Completed?, Approval Status, Source Tab
+- History is append-only
+
+### Definition of Done (Chore History)
+
+- Chore History tab is present and matches documentation
+
+---
+
+## docs: Update SHEET_STRUCTURE.md and SHEET_AUTOCREATE.md
+
+**Description**  
+Ensure documentation matches the current script and sheet structure, including all tabs, columns, validations, and automation notes. Remove outdated or inconsistent details.
+
+### Acceptance Criteria (Docs)
+
+- All tabs and columns in docs match the script
+- Validation and automation notes are up to date
+- Example data and formulas are correct
+
+### Definition of Done (Docs)
+
+- Docs are clear, accurate, and referenced in README
+
+---

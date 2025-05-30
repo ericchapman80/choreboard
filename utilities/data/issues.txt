@@ -1,3 +1,45 @@
+title: chore: Auto-create Choreboard Google Sheet (Apps Script)
+body: |
+  Automate the creation of the Choreboard Google Sheet with all required tabs, columns, sample data, and validation rules using the `buildChoreboard()` Apps Script (`utilities/create_choreboard_sheet.gs`).
+
+  **Acceptance Criteria:**
+  - Script creates all tabs: Administrators (Parents), Users (Children), Reference Data, Required, Bounty, Leaderboard, Chore History, Instructions
+  - Columns and sample data match documentation
+  - Data validation is set up for dropdowns (Assigned To, Frequency, Status, Claimed By, Approval Status)
+  - Leaderboard tab uses formulas to sum points from Required and Bounty
+  - Instructions tab provides onboarding and usage guidance
+  - Script is idempotent (safe to re-run)
+
+  **Definition of Done:**
+  - Script runs successfully in a new Google Sheet
+  - All tabs, columns, and validations are present
+  - Sample data is visible and correct
+  - Instructions are clear and match documentation
+---
+title: feat: Add Chore History tracking
+body: |
+  Add a Chore History tab to log completed chores, including timestamp, task, assigned to, completed status, approval status, and source tab. Update documentation and script to ensure this is created and used.
+
+  **Acceptance Criteria:**
+  - Chore History tab is created by the script
+  - Columns: Timestamp, Task, Assigned To, Completed?, Approval Status, Source Tab
+  - History is append-only
+
+  **Definition of Done:**
+  - Chore History tab is present and matches documentation
+---
+title: docs: Update SHEET_STRUCTURE.md and SHEET_AUTOCREATE.md
+body: |
+  Ensure documentation matches the current script and sheet structure, including all tabs, columns, validations, and automation notes. Remove outdated or inconsistent details.
+
+  **Acceptance Criteria:**
+  - All tabs and columns in docs match the script
+  - Validation and automation notes are up to date
+  - Example data and formulas are correct
+
+  **Definition of Done:**
+  - Docs are clear, accurate, and referenced in README
+---
 title: chore: Create Google Sheet with Bounty and Required tabs
 body: |
   Set up the initial chore tracking system with two tabs: one for required chores and one for bounty tasks.
