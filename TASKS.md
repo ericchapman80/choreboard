@@ -1,18 +1,78 @@
 # Choreboard Tasks
 
-##  Docs & Blog
+## Future Enhancements
+
+### Documentation-Centric Approach
+
+#### Overview
+
+Shift from an issue-centric to a documentation-centric approach to enable better AI assistance and project maintainability.
+
+#### Benefits
+
+- **Single Source of Truth**: Architecture and tasks in one place
+- **Better AI Assistance**: Structured metadata for improved code generation
+- **Improved Traceability**: Clear links between architecture and implementation
+- **Automated Synchronization**: Scripts to keep documentation and issues in sync
+
+#### Implementation Plan
+
+##### Phase 1: Documentation Foundation
+
+- [ ] Create comprehensive ARCHITECTURE.md
+- [ ] Document current system components and data flows
+- [ ] Define metadata standards for AI assistance
+
+##### Phase 2: Task Management
+
+- [ ] Generate TASKS.md from ARCHITECTURE.md
+- [ ] Implement synchronization between TASKS.md and issues.txt
+- [ ] Update automation scripts to handle new format
+
+##### Phase 3: AI Tooling
+
+- [ ] Add AI-specific metadata to documentation
+- [ ] Create prompt templates for common tasks
+- [ ] Document common workflows for AI assistance
+
+### AI Tooling Enhancements
+
+#### Goal
+Enhance the current workflow to be more AI-friendly for pair programming while maintaining existing functionality.
+
+#### Tasks
+- [ ] **feat: Add AI context comments to key scripts** (ai-003)
+  _Labels: [enhancement, ai, workflow]_
+  Add standard headers to all scripts with CONTEXT, USAGE, and DEPENDENCIES
+
+- [ ] **feat: Document common workflows for AI assistance** (ai-004)
+  _Labels: [documentation, ai, workflow]_
+  Create WORKFLOWS.md with common development workflows
+
+- [ ] **feat: Add metadata to existing issues** (ai-005)
+  _Labels: [enhancement, ai, automation]_
+  Enhance issue templates with AI-relevant metadata
+
+- [ ] **feat: Create prompt templates for development tasks** (ai-006)
+  _Labels: [documentation, ai]_
+  Document common prompts for AI-assisted development
+
+- [ ] **feat: Document system architecture for AI** (ai-007)
+  _Labels: [documentation, architecture, ai]_
+  Create CONTEXT.md explaining system architecture for AI consumption
+
+## Docs & Blog
 
 - [ ] **docs: Publish blog series documenting build process and learnings** (docs-001)
   _Labels: [documentation, blog]_
-      Open-source the journey and share the tech + family impact.
-    
-      **Acceptance Criteria:**
-      - Posts include screenshots and repo links
-      - Covers tech, parenting, and AI use
-    
-      **Definition of Done:**
-      - 3–5 blog posts published or drafted
-    
+  Open-source the journey and share the tech + family impact.
+
+  **Acceptance Criteria:**
+  - Posts include screenshots and repo links
+  - Covers tech, parenting, and AI use
+
+  **Definition of Done:**
+  - 3–5 blog posts published or drafted
 
 
 ##  MVP Setup
