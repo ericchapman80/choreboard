@@ -89,3 +89,32 @@ This will be a multipart series walking through:
 3. Apps Script
 4. React Frontend
 5. Launch + Lessons
+6. **World-Class Bi-Directional Task/Issue Sync for AI-Driven Projects**
+   - Why a single source of truth (`issues.txt`) supercharges both AI and human workflows
+   - YAML/Markdown task format with unique IDs for safe round-trip sync
+   - Shell scripts for push (repo → GitHub Issues) and pull (GitHub Issues → repo)
+   - GitHub Actions for nightly and event-based automation
+   - Auto-generating human-friendly `TASKS.md` from `issues.txt`
+   - Example `issues.txt` entry:
+     ```yaml
+     id: chore-001
+     title: chore: Auto-create Choreboard Google Sheet (Apps Script)
+     labels: [chore, automation]
+     state: open
+     body: |
+       Automate the creation of the Choreboard Google Sheet...
+     ---
+     ```
+   - Example shell snippet to push issues:
+     ```bash
+     #!/bin/bash
+     for f in issue_*.yml; do
+       id=$(grep '^id:' "$f" | cut -d' ' -f2)
+       title=$(grep '^title:' "$f" | cut -d' ' -f2-)
+       body=$(awk '/^body: \|/{flag=1;next}/^---/{flag=0}flag' "$f")
+       labels=$(grep '^labels:' "$f" | sed 's/labels: //')
+       gh issue create --title "$title" --body "$body" --label "$labels"
+     done
+     ```
+   - Best practices for conflict resolution, contributor workflow, and AI tool compatibility
+   - How this system enables AI agents and humans to collaborate on open source at scale

@@ -1,4 +1,4 @@
-name: Sync GitHub Issues to issues.txt
+name: Sync GitHub Issues and Generate Tasks
 
 on:
   schedule:
@@ -7,31 +7,55 @@ on:
   issues:
     types: [opened, edited, closed, reopened]
 
+# Set the permissions for the GITHUB_TOKEN
+permissions:
+  contents: write
+  issues: read
+  pull-requests: write
+
 jobs:
   sync-issues:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      issues: read
+      pull-requests: write
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
+        with:
+          persist-credentials: false  # Important for using the PAT
 
       - name: Set up GitHub CLI
         run: |
           sudo apt-get update
           sudo apt-get install -y gh jq
 
-      - name: Authenticate GitHub CLI
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: gh auth setup-git
+      - name: Configure Git
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
 
-      - name: Run sync script
-        run: bash utilities/github-issue-sync.sh
+      - name: Run sync script (GitHub → issues.txt)
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN || github.token }}
+        run: |
+          gh auth login --with-token <<< "$GH_TOKEN"
+          bash utilities/github-issue-sync.sh
+
+      - name: Generate TASKS.md
+        run: bash utilities/generate-tasks-md.sh
 
       - name: Commit and push changes
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN || github.token }}
         run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add utilities/data/issues.txt
-          git commit -m "chore: sync GitHub issues to issues.txt" || echo "No changes to commit"
-          git push
+          # Configure git to use the token for authentication
+          git remote set-url origin https://x-access-token:$GH_TOKEN@github.com/$GITHUB_REPOSITORY.git
+          
+          # Add and commit changes
+          git add utilities/data/issues.txt TASKS.md
+          git diff --quiet && git diff --staged --quiet || \
+            (git commit -m "chore: sync GitHub issues and regenerate TASKS.md" && \
+             git push origin HEAD:main)

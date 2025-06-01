@@ -1,62 +1,492 @@
-title: chore: Auto-create Choreboard Google Sheet (Apps Script)
+---
+milestone: Developer Experience
+id: dev-003
+title: docs: Add setup instructions and GitHub auth notes to README
+labels: [dev, docs]
+state: OPEN
 body: |
-  Automate the creation of the Choreboard Google Sheet with all required tabs, columns, sample data, and validation rules using the `buildChoreboard()` Apps Script (`utilities/create_choreboard_sheet.gs`).
+      (No description provided)
+
+---
+milestone: Developer Experience
+id: dev-004
+title: docs: Document architecture in full Markdown format
+labels: [dev, docs]
+state: OPEN
+body: |
+      (No description provided)
+
+---
+milestone: Developer Experience
+id: dev-005
+title: chore: Generate GitHub labels in repo settings to avoid CLI errors
+labels: [chore, dev, github-labels]
+state: OPEN
+body: |
+      (No description provided)
+
+---
+milestone: Dashboard & Reporting
+id: dash-001
+title: feat: Add weekly leaderboard (stars + dollars)
+labels: [dashboard, leaderboard]
+state: OPEN
+body: |
+      (No description provided)
+
+---
+milestone: Automation & Sync
+id: auto-006
+title: feat: Add label detection in issue creation script
+labels: [automation, labels, scripts]
+state: OPEN
+body: |
+      (No description provided)
+
+---
+milestone: Automation & Sync
+id: auto-007
+title: docs: Update README with setup instructions + dependency management (Brewfile)
+labels: [automation, dev, docs]
+state: OPEN
+body: |
+      (No description provided)
+
+---
+milestone: Developer Experience
+id: dev-001
+title: chore: Add Brewfile with gh and jq
+labels: [chore, brew, dev]
+state: OPEN
+body: |
+      (No description provided)
+
+---
+milestone: Developer Experience
+id: dev-002
+title: chore: Create .github/workflows/sync-issues.yml to automate issues.txt
+labels: [chore, dev, github-actions]
+state: OPEN
+body: |
+      (No description provided)
+
+---
+milestone: Docs & Blog
+id: docs-001
+title: docs: Publish blog series documenting build process and learnings
+labels: [documentation, blog]
+state: OPEN
+body: |
+      Open-source the journey and share the tech + family impact.
+
+---
+milestone: MVP Setup
+id: mvp-001
+title: chore: Design Google Sheet with 3 tabs: Required Chores, Bounty Board, Dashboard
+labels: [chore, MVP, sheets]
+state: OPEN
+body: |
+      Design Google Sheet with 3 tabs for core functionality.
+
+---
+milestone: Automation & Sync
+id: auto-004
+title: chore: Add cleanup logic to remove issue_* temp files after CLI run
+labels: [chore, automation, scripts]
+state: OPEN
+body: |
+      Ensure all temporary files are cleaned up after sync scripts run.
+
+---
+milestone: Automation & Sync
+id: auto-005
+title: chore: Store issues.txt in utilities/data/ for separation of source material
+labels: [chore, repo-structure]
+state: OPEN
+body: |
+      (No description provided)
+
+---
+milestone: Automation & Sync
+id: auto-003
+title: feat: Schedule GitHub Action to run sync script nightly and on issue events
+labels: [automation, github-actions]
+state: OPEN
+body: |
+    (No description provided)
+
+---
+milestone: Automation & Sync
+id: auto-002
+title: feat: Build github-issue-sync.sh to pull GitHub issues back into issues.txt
+labels: [automation, sync, scripts]
+state: OPEN
+body: |
+    (No description provided)
+
+---
+milestone: Automation & Sync
+id: auto-001
+title: feat: Build github-issue-autocreate.sh to convert issues.txt into live GitHub issues
+labels: [automation, sync, scripts]
+state: OPEN
+body: |
+    (No description provided)
+
+---
+milestone: MVP Setup
+id: mvp-006
+title: chore: Link Form submissions to the chore sheets via Apps Script
+labels: [chore, MVP, forms, automation]
+state: OPEN
+body: |
+    (No description provided)
+
+---
+milestone: MVP Setup
+id: mvp-005
+title: chore: Build conditional formatting for overdue/incomplete tasks
+labels: [chore, MVP, formatting]
+state: OPEN
+body: |
+    Use conditional formatting to highlight overdue or incomplete chores.
+
+---
+milestone: MVP Setup
+id: mvp-004
+title: chore: Setup Apps Script for recurring task creation
+labels: [chore, MVP, automation]
+state: OPEN
+body: |
+      Write Apps Script to auto-create recurring tasks in the sheet.
+
+---
+milestone: Misc
+id: test-001
+title: Test Issue from CLI
+labels: [test]
+state: OPEN
+body: |
+      This is a test issue created from the GitHub CLI.
+
+---
+milestone: React Frontend
+id: react-005
+title: feat: Sync UI with sheet backend via GAS proxy or Sheets API
+labels: [sync, frontend, react]
+state: OPEN
+body: |
+      Sync frontend UI with the Google Sheets backend.
+
+---
+milestone: React Frontend
+id: react-004
+title: feat: Make views embeddable in DAKboard (read-only mode)
+labels: [frontend, react, embed]
+state: OPEN
+body: |
+      Allow dashboard views to be embedded in DAKboard.
+
+---
+milestone: React Frontend
+id: react-003
+title: feat: Add parent dashboard: approvals, payout log, filter by child
+labels: [dashboard, frontend, react]
+state: OPEN
+body: |
+      (No description provided)
+
+---
+milestone: MVP Setup
+id: mvp-003
+title: chore: Create a Google Form for chore claims and completions
+labels: [chore, MVP, forms]
+state: OPEN
+body: |
+      (No description provided)
+
+---
+milestone: React Frontend
+id: react-002
+title: feat: Add child dashboard: claimed tasks, due today, star tracker
+labels: [dashboard, frontend, react]
+state: OPEN
+body: |
+      (No description provided)
+
+---
+milestone: React Frontend
+id: react-001
+title: feat: Create Next.js app with Google OAuth
+labels: [frontend, react, auth]
+state: OPEN
+body: |
+      (No description provided)
+
+---
+milestone: AI Integration
+id: ai-005
+title: feat: Automatically generate a weekly schedule template per child
+labels: [ai, schedule]
+state: OPEN
+body: |
+      (No description provided)
+
+---
+milestone: AI Integration
+id: ai-004
+title: feat: Detect burnout or overuse patterns and recommend breaks
+labels: [ai, wellbeing]
+state: OPEN
+body: |
+      (No description provided)
+
+---
+milestone: AI Integration
+id: ai-003
+title: feat: Add natural language interface (e.g., “what chores are due today for Karter?”)
+labels: [ai, nlp]
+state: OPEN
+body: |
+      (No description provided)
+
+---
+milestone: AI Integration
+id: ai-002
+title: feat: Suggest reward levels based on effort and frequency
+labels: [ai, suggestion]
+state: OPEN
+body: |
+      (No description provided)
+
+---
+milestone: AI Integration
+id: ai-001
+title: feat: Suggest age-appropriate chores via GPT
+labels: [ai, suggestion]
+state: OPEN
+body: |
+      (No description provided)
+
+---
+milestone: Dashboard & Reporting
+id: dash-004
+title: feat: Include motivational quote per week (optional)
+labels: [dashboard, fun]
+state: OPEN
+body: |
+      (No description provided)
+
+---
+milestone: Dashboard & Reporting
+id: dash-003
+title: feat: Filter dashboard by week/date
+labels: [dashboard, filters]
+state: OPEN
+body: |
+      (No description provided)
+
+---
+milestone: Dashboard & Reporting
+id: dash-002
+title: feat: Create pivot charts to show completion %, top earners
+labels: [dashboard, charts]
+state: OPEN
+body: |
+      (No description provided)
+
+---
+milestone: MVP Setup
+id: mvp-002
+title: chore: Add data validation (dropdowns, checkboxes, dates) to each tab
+labels: [chore, MVP, validation]
+state: OPEN
+body: |
+      (No description provided)
+
+---
+milestone: Dashboard & Reporting
+id: dash-001
+title: feat: Add weekly leaderboard (stars + dollars)
+labels: [dashboard, leaderboard]
+state: OPEN
+body: |
+      (No description provided)
+
+---
+milestone: Developer Experience
+id: dev-005
+title: chore: Generate GitHub labels in repo settings to avoid CLI errors
+labels: [chore, dev, github-labels]
+state: OPEN
+body: |
+      (No description provided)
+
+---
+milestone: Developer Experience
+id: dev-004
+title: docs: Document architecture in full Markdown format
+labels: [dev, docs]
+state: OPEN
+body: |
+      (No description provided)
+
+---
+milestone: Developer Experience
+id: dev-003
+title: docs: Add setup instructions and GitHub auth notes to README
+labels: [dev, docs]
+state: OPEN
+body: |
+      (No description provided)
+
+---
+milestone: Developer Experience
+id: dev-002
+title: chore: Create .github/workflows/sync-issues.yml to automate issues.txt
+labels: [chore, dev, github-actions]
+state: OPEN
+body: |
+    (No description provided)
+
+---
+milestone: Developer Experience
+id: dev-001
+title: chore: Add Brewfile with gh and jq
+labels: [chore, brew, dev]
+state: OPEN
+body: |
+    (No description provided)
+
+---
+milestone: Automation & Sync
+id: auto-007
+title: docs: Update README with setup instructions + dependency management (Brewfile)
+labels: [automation, dev, docs]
+state: OPEN
+body: |
+    (No description provided)
+
+---
+milestone: Automation & Sync
+id: auto-006
+title: feat: Add label detection in issue creation script
+labels: [automation, labels, scripts]
+state: OPEN
+body: |
+    (No description provided)
+
+---
+milestone: Automation & Sync
+id: auto-005
+title: chore: Store issues.txt in utilities/data/ for separation of source material
+labels: [chore, repo-structure]
+state: OPEN
+body: |
+    Keep issues.txt in a dedicated data directory.
+
+---
+milestone: Automation & Sync
+id: auto-004
+title: chore: Add cleanup logic to remove issue_* temp files after CLI run
+labels: [chore, automation, scripts]
+state: OPEN
+body: |
+    Ensure all temporary files are cleaned up after sync scripts run.
+
+---
+milestone: MVP Setup
+id: mvp-001
+title: chore: Design Google Sheet with 3 tabs: Required Chores, Bounty Board, Dashboard
+labels: [chore, MVP, sheets]
+state: OPEN
+body: |
+    Design Google Sheet with 3 tabs for core functionality.
+
+---
+milestone: Docs & Blog
+id: docs-001
+title: docs: Publish blog series documenting build process and learnings
+labels: [documentation, blog]
+state: OPEN
+body: |
+    Open-source the journey and share the tech + family impact.
+
+---
+milestone: Uncategorized
+id: 
+title: docs: Publish blog series documenting build process and learnings
+labels: [documentation]
+state: OPEN
+body: |
+    Open-source the journey and share the tech + family impact.
 
   **Acceptance Criteria:**
-  - Script creates all tabs: Administrators (Parents), Users (Children), Reference Data, Required, Bounty, Leaderboard, Chore History, Instructions
-  - Columns and sample data match documentation
-  - Data validation is set up for dropdowns (Assigned To, Frequency, Status, Claimed By, Approval Status)
-  - Leaderboard tab uses formulas to sum points from Required and Bounty
-  - Instructions tab provides onboarding and usage guidance
-  - Script is idempotent (safe to re-run)
+  - Posts include screenshots and repo links
+  - Covers tech, parenting, and AI use
 
   **Definition of Done:**
-  - Script runs successfully in a new Google Sheet
-  - All tabs, columns, and validations are present
-  - Sample data is visible and correct
-  - Instructions are clear and match documentation
+  - 3–5 blog posts published or drafted
+
 ---
-title: feat: Add Chore History tracking
+milestone: Uncategorized
+id: 
+title: feat: Build parent view to approve/reject tasks and track payouts
+labels: [enhancement]
+state: OPEN
 body: |
-  Add a Chore History tab to log completed chores, including timestamp, task, assigned to, completed status, approval status, and source tab. Update documentation and script to ensure this is created and used.
+    Admin panel for parents to approve tasks, view pending items, and mark payouts complete.
 
   **Acceptance Criteria:**
-  - Chore History tab is created by the script
-  - Columns: Timestamp, Task, Assigned To, Completed?, Approval Status, Source Tab
-  - History is append-only
+  - Pulls completed tasks awaiting approval
+  - Approve/reject buttons update sheet
 
   **Definition of Done:**
-  - Chore History tab is present and matches documentation
+  - Sheet reflects approval status
+  - Payouts tab updated on approval
+
 ---
-title: docs: Update SHEET_STRUCTURE.md and SHEET_AUTOCREATE.md
+milestone: Uncategorized
+id: 
+title: feat: Build child view to claim tasks and mark completion
+labels: [enhancement]
+state: OPEN
 body: |
-  Ensure documentation matches the current script and sheet structure, including all tabs, columns, validations, and automation notes. Remove outdated or inconsistent details.
+    Provide a kid-friendly interface to claim and complete tasks via React.
 
   **Acceptance Criteria:**
-  - All tabs and columns in docs match the script
-  - Validation and automation notes are up to date
-  - Example data and formulas are correct
+  - Pulls available/assigned tasks via API
+  - Allows claiming or marking complete
 
   **Definition of Done:**
-  - Docs are clear, accurate, and referenced in README
+  - Data syncs to sheet via API
+  - Interface is responsive and easy to use
+
 ---
-title: chore: Create Google Sheet with Bounty and Required tabs
+milestone: Uncategorized
+id: 
+title: feat: Scaffold React frontend with Google login
+labels: [enhancement]
+state: OPEN
 body: |
-  Set up the initial chore tracking system with two tabs: one for required chores and one for bounty tasks.
+    Create a Next.js React app scaffold with Google OAuth2 authentication.
 
   **Acceptance Criteria:**
-  - Required tab includes: task name, frequency, due date, assigned to, completed?, approval status
-  - Bounty tab includes: task name, bounty $, points, claimed by, completed?, approval status
-  - Column formats are consistent and user-friendly
+  - Authenticated users' emails are matched to names in the sheet
+  - Environment is deployable via Vercel
 
   **Definition of Done:**
-  - Sheet is created and shared with appropriate access
-  - Columns are validated (e.g., dropdowns, checkboxes)
-  - Example tasks are added to show formatting
+  - Initial login flow complete
+  - Users routed to child or parent view based on email
+
 ---
+milestone: Uncategorized
+id: 
 title: feat: Create pivot table dashboard for weekly earnings
+labels: [enhancement]
+state: OPEN
 body: |
-  Use Google Sheets pivot tables to summarize weekly performance per child.
+    Use Google Sheets pivot tables to summarize weekly performance per child.
 
   **Acceptance Criteria:**
   - Shows earnings ($), points (⭐), and tasks completed
@@ -66,74 +496,13 @@ body: |
   - Sheet loads with correct charts
   - No errors or broken references
   - Demoed with sample data
+
 ---
-title: feat: Scaffold React frontend with Google login
+milestone: Uncategorized
+id: 
+title: Test Issue from CLI
+labels: []
+state: OPEN
 body: |
-  Create a Next.js React app scaffold with Google OAuth2 authentication.
+  This is a test issue created manually.
 
-  **Acceptance Criteria:**
-  - Authenticated users' emails are matched to names in the sheet
-  - Environment is deployable via Vercel
-
-  **Definition of Done:**
-  - Initial login flow complete
-  - Users routed to child or parent view based on email
----
-title: feat: Build child view to claim tasks and mark completion
-body: |
-  Provide a kid-friendly interface to claim and complete tasks via React.
-
-  **Acceptance Criteria:**
-  - Pulls available/assigned tasks via API
-  - Allows claiming or marking complete
-
-  **Definition of Done:**
-  - Data syncs to sheet via API
-  - Interface is responsive and easy to use
----
-title: feat: Build parent view to approve/reject tasks and track payouts
-body: |
-  Admin panel for parents to approve tasks, view pending items, and mark payouts complete.
-
-  **Acceptance Criteria:**
-  - Pulls completed tasks awaiting approval
-  - Approve/reject buttons update sheet
-
-  **Definition of Done:**
-  - Sheet reflects approval status
-  - Payouts tab updated on approval
----
-title: docs: Publish blog series documenting build process and learnings
-body: |
-  Open-source the journey and share the tech + family impact.
-
-  **Acceptance Criteria:**
-  - Posts include screenshots and repo links
-  - Covers tech, parenting, and AI use
-
-  **Definition of Done:**
-  - 3–5 blog posts published or drafted
----
-title: chore: Add Jest and sample unit tests for React components
-body: |
-  Set up Jest and React Testing Library for unit testing React components.
-
-  **Acceptance Criteria:**
-  - Jest and React Testing Library are installed and configured
-  - At least one sample test exists for a simple component
-  - Test command is documented in the README
-
-  **Definition of Done:**
-  - `npm test` runs and passes sample tests
----
-title: chore: Add GitHub Actions CI to run unit tests on every build
-body: |
-  Set up GitHub Actions workflow to run unit tests on every push and pull request.
-
-  **Acceptance Criteria:**
-  - Workflow runs `npm test` for the React frontend
-  - Fails the build if any test fails
-
-  **Definition of Done:**
-  - CI badge can be added to README
-  - PRs are blocked if tests fail

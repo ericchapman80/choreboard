@@ -1,6 +1,9 @@
-# SHEET\_AUTOCREATE.md
+# Choreboard Sheet Auto-Creation Guide
 
-## 📄 Sheet Auto-Creation Instructions (One-Click Setup)
+This document explains how to set up and use the Choreboard Google Sheet with one-click Apps Script automation. It covers setup, automation, validation, custom menu features, and troubleshooting.
+
+
+## Quick Start: One-Click Setup
 
 This guide walks you through setting up the **Choreboard** Google Sheet using a fully automated Apps Script. It creates all necessary tabs, sample data, reference lists, and validation rules.
 
@@ -76,7 +79,7 @@ The following tabs are created automatically by the `buildChoreboard()` script:
   - Check points in `Leaderboard`.
   - Review history in `Chore History`.
 
-## 🔁 Validations
+## Data Validation
 
 All dropdowns are set using the `Reference Data` tab:
 
@@ -97,7 +100,7 @@ Each validation is applied to columns in the **Required** and **Bounty** sheets,
 
 ---
 
-### 💡 Troubleshooting
+### Troubleshooting
 
 - ❌ **No active spreadsheet found**:
   Ensure you're running the script from within a bound Google Sheet (not standalone at [scripts.google.com](https://scripts.google.com)).
@@ -107,7 +110,7 @@ Each validation is applied to columns in the **Required** and **Bounty** sheets,
 
 ---
 
-### 🛠️ Next Steps
+### Next Steps
 
 - Customize your `Users` and `Administrators` tabs with real names/emails.
 - Use the `Instructions` tab to help your family learn how to use the sheet.
@@ -116,3 +119,7 @@ Each validation is applied to columns in the **Required** and **Bounty** sheets,
 ---
 
 Happy choreboarding! 🎯
+
+---
+
+For detailed sheet structure and menu documentation, see `SHEET_STRUCTURE.md` in this folder.

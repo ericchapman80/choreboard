@@ -1,10 +1,10 @@
-# 🧰 Choreboard Automation Scripts
+# 🧑‍💻 Choreboard Automation Scripts
 
-This document details all the Google Apps Script automations used in the Choreboard system. These scripts enable dynamic sheet creation, weekly resets, and integration with Google Forms.
+This document details all Google Apps Script automations used in the Choreboard system. These scripts enable dynamic sheet creation, weekly resets, form integration, and more. For setup walkthroughs, see [`SHEET_AUTOCREATE.md`](./SHEET_AUTOCREATE.md).
 
 ---
 
-## 🚀 `createChoreboardSheet.gs`
+## 📜 Script: `buildChoreboardSheet.gs`
 
 Initializes and structures the entire Choreboard Google Sheet with tabs, sample data, validations, and guidance.
 
@@ -20,7 +20,7 @@ Initializes and structures the entire Choreboard Google Sheet with tabs, sample 
 
 1. Open [https://sheets.new](https://sheets.new) to create a new sheet.
 2. Go to `Extensions > Apps Script`.
-3. Paste in the code from `createChoreboardSheet.gs`.
+3. Paste in the code from `buildChoreboardSheet.gs`.
 4. Click the ▶️ (Run) button.
 5. Authorize access if prompted.
 6. Your sheet will now contain:
@@ -33,7 +33,7 @@ Initializes and structures the entire Choreboard Google Sheet with tabs, sample 
 
 ---
 
-## ⏰ `weeklyReset.gs` (Coming Soon)
+## 🔄 Weekly Summary / Reset.gs` (Coming Soon)
 
 Summarizes weekly task completion and resets completion fields to prepare for the next week.
 
@@ -43,7 +43,7 @@ Summarizes weekly task completion and resets completion fields to prepare for th
 
 ---
 
-## ✍️ `processFormSubmissions.gs` (Coming Soon)
+## 📝 Process Google Form Submissions.gs` (Coming Soon)
 
 Integrates with the Google Form used by children to claim/complete tasks.
 

@@ -1,7 +1,6 @@
-# 📊 SHEET_STRUCTURE.md
+# Choreboard Sheet Structure
 
-This document outlines the structure, columns, validations, and rules used in the Choreboard Google Sheet.
-
+This document describes the structure, automation, validation, and menu features of the Choreboard Google Sheet, as created by the Apps Script automation.
 
 ## 🧾 Choreboard Google Sheet Structure
 
@@ -93,7 +92,33 @@ The formula works by:
 
 ---
 
-## 🔁 Validations
+## 📊 Custom Menu Functions
+
+The Choreboard sheet includes a custom menu that appears in the menu bar when the spreadsheet is opened. This menu provides easy access to key functions:
+
+### Update Leaderboard
+- **Purpose:** Refreshes the Leaderboard tab with current point totals
+- **When to use:** If the leaderboard seems out of sync with actual chore completions
+- **Result:** Updated point totals for all children
+
+### Reset Weekly Chores
+- **Purpose:** Resets all weekly chores to their starting state
+- **When to use:** At the beginning of each week
+- **Result:** All chores with "Weekly" frequency are set to "No" for Completed and "Not Started" for Status
+
+### Setup Triggers
+- **Purpose:** Reinstalls the automatic chore history tracking
+- **When to use:** If history tracking stops working
+- **Result:** Ensures changes to chore status are automatically recorded
+
+### Manual History Entry
+- **Purpose:** Manually add entries to the Chore History tab
+- **When to use:** For special situations or retroactive entries
+- **Result:** Creates a new history entry with the current timestamp
+
+---
+
+## 🔁 Data Validation
 
 All dropdowns are enforced using **data validation** rules that pull from reference or user data:
 
@@ -105,7 +130,7 @@ All dropdowns are enforced using **data validation** rules that pull from refere
 
 ---
 
-## 🔁 Automation Notes
+## 🔁 Automation & Scripting
 
 Automation is handled via Apps Script to:
 
@@ -114,7 +139,7 @@ Automation is handled via Apps Script to:
 - Reset weekly values as needed
 - Log completed chores to Chore History
 
-## 💡 Notes
+## 💡 Additional Notes
 
 - The sheet is idempotent — re-running the script won't duplicate tabs or headers.
 - Data validation prevents user input errors by using dropdowns.

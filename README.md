@@ -24,8 +24,93 @@
 
 - Google Sheets + Forms + Apps Script
 - React (Next.js) + Google OAuth
+- GitHub Actions (CI/CD)
+- Google OAuth2 (Authentication)
+- GitHub API (Issue Syncing)
 - DAKboard embedding
-- Markdown documentation and GitHub project boards
+
+---
+
+## 🚀 Development Setup
+
+### Prerequisites
+
+- Node.js 16+ and npm/yarn
+- Google Cloud Platform account with Sheets API enabled
+- GitHub account with repository access
+
+### Environment Setup
+
+1. **Clone the repository**
+
+   ```bash
+   git clone https://github.com/ericchapman80/choreboard.git
+   cd choreboard
+   ```
+
+2. **Install dependencies**
+
+   ```bash
+   npm install  # or yarn install
+   ```
+
+3. **Set up environment variables**
+
+   ```bash
+   cp env.example .env
+   ```
+
+   Update the `.env` file with your configuration:
+   - Google OAuth2 credentials
+   - GitHub token (for issue syncing)
+   - Google Sheets API key and spreadsheet ID
+
+4. **Start the development server**
+
+   ```bash
+   npm run dev  # or yarn dev
+   ```
+
+   The app will be available at `http://localhost:3000`
+
+### Environment Variables
+
+Key environment variables needed (see `env.example` for full list):
+
+```env
+# Google OAuth2
+GOOGLE_CLIENT_ID=your-client-id
+GOOGLE_CLIENT_SECRET=your-client-secret
+NEXTAUTH_URL=http://localhost:3000
+NEXTAUTH_SECRET=your-nextauth-secret
+
+# GitHub Integration
+GITHUB_TOKEN=your-github-token
+
+# Google Sheets
+GOOGLE_SHEETS_API_KEY=your-api-key
+GOOGLE_SHEETS_SPREADSHEET_ID=your-spreadsheet-id
+```
+
+
+### GitHub Actions
+
+The repository includes GitHub Actions workflows for:
+
+- Syncing GitHub issues with `issues.txt`
+- Running tests on pull requests
+- Automated dependency updates
+
+Make sure to set up the following secrets in your GitHub repository settings:
+
+- `GH_TOKEN`: GitHub token with `repo` scope
+- Any other required API keys
+
+## 📖 Documentation
+
+- [Project Structure](/docs/PROJECT_STRUCTURE.md)
+- [Sheet Structure](/docs/SHEET_STRUCTURE.md)
+- [API Documentation](/docs/API.md)
 
 ---
 
